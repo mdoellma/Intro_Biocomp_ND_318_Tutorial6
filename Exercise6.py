@@ -17,6 +17,12 @@ scores=pandas.read_csv("UWvMSU_1-22-13.txt", sep='\t')
 UWtotalscore=0
 MSUtotalscore=0
 
+#Make dataframe
+A=scores.time
+dataframe=pandas.DataFrame(A, columns=['time', 'UWscore', 'MSUscore'])
+dataframe
 #
 for 
+
+
 
