@@ -24,17 +24,26 @@ for i in range (0, len(data),1): #for loop generates final score for each team
             MSU_score = MSU_score + data.score[i]
 
 
-D = pandas.DataFrame(game, columns[= ['time', 'team', 'score']) 
+D = pandas.DataFrame(game, columns= ['time', 'team', 'score']) 
+
+MSU_score = pandas.DataFrame(game, columns = ['time', 'team','score'])
+UW_score = pandas.DataFrame(game, columns = ['time', 'team', 'score'])
+
+#try separate arrays for MSU and UW_score, with time and correct score
+#then plot it? 
 
 
 for i in range (0,len(data),1):
     D.time[i] == D.time[i]
     if data.team[i]== 'UW':
-        D.team[i] = 'UW'
+        UW_score.team[i] = 'UW'
+        UW_score.score[i] = data.score[i]
+            if i < 0:
+                UW_score.score[i] = UW_score.score[i] + UW_score.score[i-1]
     elif data.team[i] == 'MSU':
-        D.team[i] = 'MSU'
+        MSU_score.team[i] = 'MSU'
 
-        
+#separate as above comment says(?), currently score sum is not correct        
 for i in range (0,len(data),1):
     if i == 0:
         D.score[i] = data.score[i] 
