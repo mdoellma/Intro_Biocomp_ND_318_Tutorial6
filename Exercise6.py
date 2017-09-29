@@ -5,7 +5,7 @@ import numpy
 import matplotlib.pyplot as plt
 
 #Set Om's WD
-os.chdir('/Users/omneelay/Desktop/Exercise6/Intro_Biocomp_ND_318_Tutorial6/')
+#os.chdir('/Users/omneelay/Desktop/Exercise6/Intro_Biocomp_ND_318_Tutorial6/')
 
 #Set JSH Om's WD
 os.chdir('C:\\Users\\joshu\\OneDrive\\github\\BioComp\\Tutorial6\\Intro_Biocomp_ND_318_Tutorial6\\')
@@ -21,8 +21,8 @@ MSUtotalscore=0
 A=scores.time
 dataframe=pandas.DataFrame(A, columns=['time', 'UWscore', 'MSUscore'])
 dataframe
-#
-for 
+#so we need to index within the for loop
+ 
 
 
 
