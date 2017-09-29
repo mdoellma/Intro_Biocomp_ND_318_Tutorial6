@@ -7,4 +7,12 @@ print f
 
 import pandas
 import matplotlib.pyplot as plt 
+import numpy 
 
+data = pandas.read_csv("UWvMSU_1-22-13.txt", delimiter = '\t')
+
+game = numpy.zeros((50,3))
+
+
+for i in data:
+    
