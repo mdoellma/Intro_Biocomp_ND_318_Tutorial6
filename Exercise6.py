@@ -7,7 +7,7 @@ import random
 from random import randint
 
 #Set Om's WD
-os.chdir('/Users/omneelay/Desktop/Exercise6/Intro_Biocomp_ND_318_Tutorial6/')
+#os.chdir('/Users/omneelay/Desktop/Exercise6/Intro_Biocomp_ND_318_Tutorial6/')
 
 #Set JSH WD
 #os.chdir('C:\\Users\\joshu\\OneDrive\\github\\BioComp\\Tutorial6\\Intro_Biocomp_ND_318_Tutorial6\\')
@@ -23,6 +23,12 @@ MSUtotalscore=0
 #Make dataframe
 A=scores.time
 dataframe=pandas.DataFrame(A, columns=['time', 'UWscore', 'MSUscore'])
+<<<<<<< HEAD
+=======
+dataframe
+#so we need to index within the for loop
+ 
+>>>>>>> 28f60eff2feb1aca87958775c080d02ca4866df2
 
 
 
