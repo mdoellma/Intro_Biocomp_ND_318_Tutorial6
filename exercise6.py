@@ -3,14 +3,20 @@
 #add data
 import pandas
 import numpy
-UWvMSU = pandas.read_csv("UWvMSU_1-22-13.txt",header=0,sep="\t") #read original file with scores
-print(UWvMSU)
-UWvMSU.shape #number of rows, columns
-len(UWvMSU) #length of file
-scorearray = numpy.zeros((50,3)) #need time, cumulative score for each team
-print(scorearray) #makes an array populated with zeros
-#add packages
-import matplot.pyplot as plt
+#Columns in final array: 1st is time, 2nd is MSU score, 3rd is UW score
+UWvMSU = pandas.read_csv("UWvMSU_1-22-13.txt",header=0,sep="\t") #read original file with scores, tabs are delimeter
+scorearray = numpy.zeros((51,3)) #this is the new array that I am going to populate with data, there is an extra row at the top so time zero is zero score
+for row in range(0,len(UWvMSU),1): #starting with row zero through the length of the original file (UWvMSU), counting by 1, variable is "row"
+    scorearray[row+1,0] = UWvMSU.iloc[row,0] #in row+1 (starting with second row b/c first row is zero), populate column 1 of scorearray (index zero) with times from column 1 in UWvMSU data
+    if UWvMSU.iloc[row,1] == "MSU": #read through rows in column 2 (index 1) in UWvMSU, see if it reads MSU
+        scorearray[row+1,1] = scorearray[row,1] + UWvMSU.iloc[row,2] #populate the scorearray with row+1(the next row, in column 2,(index 1) and add the score from UWvMSU file with row and score from UWvMSU
+        #part above is for adding cumulative score for MSU
+        scorearray[row+1,2] = scorearray[row,2] #populate the third column (index 2) of scorearray with the score from column 3 (index 2) without adding to the score
+        #cumulative score for UW above, doesn't add to score when MSU is found
+    else: #this assumes no errors and that anything besides MSU will be UW 
+        scorearray[row+1,2] = scorearray[row,2] + UWvMSU.iloc[row,2] #in reverse of the first part of the if statement, add to the culmulative score for UW
+        scorearray[row+1,1] = scorearray[row,1] #don't add to the score for MSU, move the last score down to the next row
+print(scorearray) #a print step for checking the array for cumulative scores, I may hash it out later
 
 
 #2 game (guess my number)
