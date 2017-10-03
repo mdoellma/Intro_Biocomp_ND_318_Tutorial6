@@ -1,7 +1,14 @@
 #change to appropriate directory with unix commands or with 'preferences'
 #1 plot generation
 #add data
-
+import pandas
+import numpy
+UWvMSU = pandas.read_csv("UWvMSU_1-22-13.txt",header=0,sep="\t") #read original file with scores
+print(UWvMSU)
+UWvMSU.shape #number of rows, columns
+len(UWvMSU) #length of file
+scorearray = numpy.zeros((50,3)) #need time, cumulative score for each team
+print(scorearray) #makes an array populated with zeros
 #add packages
 import matplot.pyplot as plt
 
