@@ -1,0 +1,17 @@
+import numpy
+import random
+n = random.randint(1,100)
+guess = int(raw_input("I'm thinking of a number 1-100..."))
+while n !="guess":
+    print
+    if guess < n:
+        print "Higher"
+        guess = int(raw_input("I'm thinking of a number 1-100..."))
+    elif guess > n:
+        print "Lower"
+        guess = int(raw_input("I'm thinking of a number 1-100..."))
+    else:
+        print "Correct!"
+        break
+    print
+    
