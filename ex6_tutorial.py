@@ -18,11 +18,12 @@ MSU_score = 0
 
 
 for i in range (0, len(data),1): #for loop generates final score for each team 
-        if data.team[i] == 'UW':
-            UW_score = UW_score + data.score[i]
+	if data.team[i] == 'UW':
+		UW_score = UW_score + data.score[i]
         elif data.team[i] == 'MSU':
-            MSU_score = MSU_score + data.score[i]
-
+        	MSU_score = MSU_score + data.score[i]
+print UW_score
+print MSU_score
 
 D = pandas.DataFrame(game, columns= ['time', 'team', 'score']) 
 
@@ -35,13 +36,13 @@ UW_score = pandas.DataFrame(game, columns = ['time', 'team', 'score'])
 
 for i in range (0,len(data),1):
     D.time[i] == D.time[i]
-    if data.team[i]== 'UW':
-        UW_score.team[i] = 'UW'
-        UW_score.score[i] = data.score[i]
-            if i < 0:
-                UW_score.score[i] = UW_score.score[i] + UW_score.score[i-1]
-    elif data.team[i] == 'MSU':
-        MSU_score.team[i] = 'MSU'
+	if data.team[i]== 'UW':
+		UW_score.team[i] = 'UW'
+        	UW_score.score[i] = data.score[i]
+	if i < 0:
+		UW_score.score[i] = UW_score.score[i] + UW_score.score[i-1]
+    	elif data.team[i] == 'MSU':
+        	MSU_score.team[i] = 'MSU'
 
 #separate as above comment says(?), currently score sum is not correct        
 for i in range (0,len(data),1):
