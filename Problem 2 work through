@@ -1,3 +1,5 @@
+# Used www.pythonforbeginners.com for help
+# Used random.randint instead of numpy.random.choice
 import numpy
 import random
 n = random.randint(1,100)
@@ -14,4 +16,3 @@ while n !="guess":
         print "Correct!"
         break
     print
-    
