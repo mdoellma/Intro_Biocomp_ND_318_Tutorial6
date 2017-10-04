@@ -71,14 +71,19 @@ if __name__ == "__main__":
     sleep(3)
     print('\n')
     while USER_NUM != COMPUTER_NUM:
+        # i.e. user has not guessed the random number
         USER_NUM = raw_input("Guess a number between 1 and 100: ")
-        # provides a way to end the game
+        # provides a way to end the game manually
         if USER_NUM == 'q' or USER_NUM == 'quit':
             break
         try:
             USER_NUM = int(USER_NUM)
         except ValueError:
+            # i.e. user number is not an integer
             try:
+                # check if user number is type float and can be
+                #   (crudely) converted to an int. Number is rounded incorrectly
+                #   to frustrate user.
                 USER_NUM = int(round(float(USER_NUM))) + randint(-6, 6)
                 MSG = ["You", " gave", " me", " a {}?!".format(zalgo("decimal", 1))]
                 for i in range(4):
@@ -102,6 +107,8 @@ if __name__ == "__main__":
                     print('.', end='')
                 print('\n')
             except ValueError:
+                # User number is not real or NaN or something else, I guess.
+                #   At this point, they need to simply try again.
                 print("\nI certainly expected more from you.")
                 sleep(1)
                 print("Please try again with a real number,", end=' ')
@@ -109,23 +116,28 @@ if __name__ == "__main__":
                 sleep(2)
                 continue
         if USER_NUM > 100 or USER_NUM < 1:
+            # User number is out of bounds.
             print("\nI give you a score of 3.4 for style and 10 for being annoying.")
             print("Try again, but only between 1 and 100 inclusive,", end=' ')
             print("which does not include {}.".format(USER_NUM))
             sleep(4)
             continue
         elif USER_NUM > COMPUTER_NUM:
+            # Reminds user of input and informs them that they're too high.
             print("\nResults of this test were highly informative.")
             sleep(2)
             print("Too highly. Try a number lower than {}.".format(USER_NUM))
             sleep(4)
         elif USER_NUM < COMPUTER_NUM:
+            # Reminds user of input and informs them that they're too low.
             print("\nThat's a low bar, but you managed", end=' ')
             print("to gently tip-toe under it.")
             sleep(2)
             print("Try another number, higher than {}.".format(USER_NUM))
             sleep(4)
     if user_number[0] != 'q':
+        # If while loop is broken, but user did not manually quit, play winning
+        #   message - we don't congratulate quitters here, Dave.
         print("Test chamber completed. In the interest of science,", end=' ')
         print("the Enrichment Center proudly presents the following list", end=' ')
         print("of numbers: Nine. Seven. Fifty. Three. Seven hundred and seven.")
