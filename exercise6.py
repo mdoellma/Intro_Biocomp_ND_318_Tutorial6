@@ -18,8 +18,13 @@ for row in range(0,len(UWvMSU),1): #starting with row zero through the length of
     else: #this assumes no errors and that anything besides MSU will be UW 
         scorearray[row+1,2] = scorearray[row,2] + UWvMSU.iloc[row,2] #in reverse of the first part of the if statement, add to the culmulative score for UW
         scorearray[row+1,1] = scorearray[row,1] #don't add to the score for MSU, move the last score down to the next row
-print(scorearray) #a print step for checking the array for cumulative scores, I may hash it out later
-
+#print(scorearray) #a print step for checking the array for cumulative scores, hashed out when not using
+MSUscore = scorearray[:,1] #define a subset of the array as MSU score for plotting
+#print(MSUscore) #checking print step
+UWscore = scorearray[:,2] #define a subset of array as UW score for plotting
+#print(UWscore) #checking print step
+import matplotlib.pyplot as plt #import package for graphing
+plt.plot(time,UWscore,'r-',time,MSUscore,'g-') #plots UWscore in red and MSUscore in green against time
 
 #2 GAME: GUESS MY Number Vs 1
 #add packages
