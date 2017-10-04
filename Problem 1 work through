@@ -2,5 +2,12 @@ import pandas
 UWvMSU = pandas.read_csv("UWvMSU_1-22-13.txt",header=0,sep="\t")
 import numpy
 scorearray = numpy.zeros((51,3))
+for row in range(0,len(UWvMSU),1):
+    if UWvMSU.iloc[row,1] == "MSU":
+        scorearray[(row+1),0] = UWvMSU.iloc[row,0]
+        scorearray[(row+1),2] = UWvMSU.iloc[row,2]
+    else:
+        scorearray[(row+1),0] = UWvMSU.iloc[row,0]
+        scorearray[(row+1),2] = UWvMSU.iloc[row,2]
 print(scorearray)
-scorearray_times = UWvMSU.iloc[:,0]
+
