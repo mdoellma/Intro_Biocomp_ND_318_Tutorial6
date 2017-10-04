@@ -1,0 +1,5 @@
+import pandas
+UWvMSU = pandas.read_csv("UWvMSU_1-22-13.txt",header=0,sep="/t/")
+import numpy
+scorearray = numpy.zeros((51,3))
+print(scorearray)
