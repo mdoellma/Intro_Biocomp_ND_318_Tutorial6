@@ -1,5 +1,16 @@
 # Using control structures in Python
 # Authors: Grant Keller and Kathleen Nicholson
+"""
+TO-DO:
+
+1. Label x axis.
+2. Label y axis.
+3. Include legend.
+4. Title the plot.
+5. Maybe add gridlines? This could make it more informative.
+6. Comment this code after (see Q2 for examples).
+"""
+
 
 import pandas
 import matplotlib.pyplot as plt
