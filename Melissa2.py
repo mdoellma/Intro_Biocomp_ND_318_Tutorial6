@@ -1,18 +1,19 @@
 import random
 
-user_input=raw_input("guess my number\n")
+user_input=raw_input
 N= random.randint(1,100)
-print N
 
-guess=0
-
-while guess !=N:
-	guess= int
-	if guess > 0:
-		if guess > N:
+print ("I'm thinking of a number 1-100...(choose 0 to give up)")
+while user_input !=N:
+	user_input= int(input("Guess:"))
+	if user_input > 0:
+		if user_input > N:
 			print ("Lower")
-		elif guess < N:
+		elif user_input < N:
 			print ("Higher")
+	else:
+		print ("Giving up? The secret number is:")
+		print N
 else:
 	print "Correct!"
 	
