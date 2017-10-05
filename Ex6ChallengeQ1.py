@@ -5,10 +5,10 @@ TO-DO:
 
 1. Label x axis. --DONE
 2. Label y axis. --DONE
-3. Include legend. 
+3. Include legend. --DONE
 4. Title the plot. --DONE
-5. Maybe add gridlines? This could make it more informative.
-6. Comment this code after (see Q2 for examples).
+5. Maybe add gridlines? This could make it more informative. --DONE
+6. Comment this code after (see Q2 for examples). --DONE
 """
 
 
@@ -33,8 +33,13 @@ for i in range(0, UWvMSU.shape[0], 1):
     time.append(UWvMSU.time[i])
 #This plots the cumulative scores as they are added over time and makes the UW score the red line and the MSU score the green line.
 plt.plot(time, UW_score, 'r-', time, MSU_score, 'g-')
+#This adds the figure legend with corresponding colors. 
+plt.legend(('UW', 'MSU',))
 #This titles the plot and gives the x and y axis labels. 
 plt.title("UW vs. MSU Game Score")
 plt.xlabel("time (s)")
 plt.ylabel("score")
+#This adds gridlines to the plot
+plt.grid(True)
+
 
