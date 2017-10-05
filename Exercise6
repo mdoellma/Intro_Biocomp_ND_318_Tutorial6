@@ -1,5 +1,32 @@
 #Problem 1
 
+#Creating array with cumulative scores
+import pandas
+UWvMSU = pandas.read_csv("UWvMSU_1-22-13.txt",header=0,sep="\t")
+import numpy
+scorearray = numpy.zeros((51,3)) #create a blank array one row longer than our original data full of zeros
+for row in range(0,len(UWvMSU),1):
+    if UWvMSU.iloc[row,1] == "MSU": #could also write UWvMSU.team[row]
+        scorearray[(row+1),0] = UWvMSU.iloc[row,0]
+        scorearray[(row+1),1] = int(UWvMSU.iloc[row,2]) + scorearray[row,1] #adds new score to the row above (cumulative!)
+        scorearray[(row+1),2] = scorearray[row,2] #keeps UW score the same
+    elif UWvMSU.iloc[row,1] == "UW":
+        scorearray[(row+1),0] = UWvMSU.iloc[row,0]
+        scorearray[(row+1),2] = int(UWvMSU.iloc[row,2]) + scorearray[row,2] #adds new score to the row above (cumulative!)
+        scorearray[(row+1),1] = scorearray[row,1] #keeps MSU score the same
+print(scorearray)
+
+#Plotting
+
+
+
+
+
+
+
+
+
+
 
 
 
