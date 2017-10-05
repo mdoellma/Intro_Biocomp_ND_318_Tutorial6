@@ -17,19 +17,14 @@ for row in range(0,len(UWvMSU),1):
 print(scorearray)
 
 #Plotting
+import scipy
+from plotnine import *
+import matplotlib.pyplot as plt
+UWscore = scorearray[:,2]
+MSUscore = scorearray[:,1]
+time = scorearray[:,0]
 
-
-
-
-
-
-
-
-
-
-
-
-
+plt.plot(time,UWscore,'r-',time,MSUscore,'g-') #recommended syntax from Stuart
 
 
 #Problem 2
