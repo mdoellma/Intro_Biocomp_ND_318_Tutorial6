@@ -18,4 +18,9 @@ print(scorearray)
 import scipy
 from plotnine import *
 import matplotlib.pyplot as plt
+UWscore = scorearray[:,2]
+MSUscore = scorearray[:,1]
+time = scorearray[:,0]
 
+#recommended syntax from Stuart for plot
+plt.plot(time,UWscore,'r-',time,MSUscore,'g-')
