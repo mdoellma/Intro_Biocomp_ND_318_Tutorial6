@@ -5,9 +5,7 @@ import numpy
 import matplotlib.pyplot as plt
 import random
 from random import randint
-import scipy
-from plotnine import *
-#the above may be specific to Windows, I don't remember
+
 
 #Set Om's WD
 #os.chdir('/Users/omneelay/Desktop/Exercise6/Intro_Biocomp_ND_318_Tutorial6/')
@@ -22,16 +20,15 @@ scores=pandas.read_csv("UWvMSU_1-22-13.txt", sep='\t')
 
 
 #Make dataframe, defined df
-#A=scores.time   we may not need this, with a for loop below
-#df=pandas.DataFrame(A, columns=['time', 'UWscore', 'MSUscore'])
-
 df=pandas.DataFrame(scores, columns=['time', 'UWscore', 'MSUscore'])
+#make a new, temp dataframe, to assign 0 as a value for all the columns in df.
 df0=pandas.DataFrame(data=[0,0,0])
 df0=df0.T
+#swap rows for columns
 df0.columns=['time', 'UWscore', 'MSUscore']
 frames=[df0,df]
 df=pandas.concat(frames)
-#this is the list to append to with the loop below
+#this is the frame in which to add the cumlative score
 for row in range(0,len(scores)):
 #if score is x team, append to x value
 #else append to y value
@@ -42,16 +39,6 @@ for row in range(0,len(scores)):
         df.iloc[row+1,2] = df.iloc[row,2] + scores.iloc[row,2]
         df.iloc[row+1,1] = df.iloc[row,1]
 plt.plot(df.time,df.UWscore,'r-',df.time,df.MSUscore,'g-')
-#<<<<<<< HEAD
-#=======
-#dataframe
-#for loop to assign score as a float. We need to append to a dataframe, assign scores
-
-#plt.plot("time","UWscore",'r-',"time","MSUscore",'g-')
-#so we need to index within the for loop
- 
->>>>>>> 28f60eff2feb1aca87958775c080d02ca4866df2
-
 
 
 #CHALLENGE 2
