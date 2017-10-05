@@ -19,6 +19,7 @@ for row in range(0,len(UWvMSU),1): #starting with row zero through the length of
         scorearray[row+1,2] = scorearray[row,2] + UWvMSU.iloc[row,2] #in reverse of the first part of the if statement, add to the culmulative score for UW
         scorearray[row+1,1] = scorearray[row,1] #don't add to the score for MSU, move the last score down to the next row
 #print(scorearray) #a print step for checking the array for cumulative scores, hashed out when not using
+time = scorearray[:,0]
 MSUscore = scorearray[:,1] #define a subset of the array as MSU score for plotting
 #print(MSUscore) #checking print step
 UWscore = scorearray[:,2] #define a subset of array as UW score for plotting
@@ -84,5 +85,4 @@ if guess == random: #once correct it lets the user know they were correct
     guessesTaken = str(guessesTaken)
     print('Good job, ' + myName + '! You guessed my number, ' + str(guess) + ', in ' + guessesTaken + ' guesses!')
 #game complete at this point
-
 
