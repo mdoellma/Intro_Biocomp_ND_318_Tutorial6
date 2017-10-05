@@ -1,0 +1,23 @@
+import matplotlib.pyplot as plt
+import pandas
+import numpy
+scores=pandas.read_csv('UWvMSU_1-22-13.txt', sep='\t')
+cumulative=numpy.zeros((51,3))
+for x in xrange (0,50):
+    if (scores.team[x]=="UW"):
+        cumulative[x+1,1]=scores.score[x]+cumulative[x,1]
+        cumulative[x+1,0]=scores.time[x]
+        cumulative[x+1,2]=cumulative[x,2]
+    elif (scores.team[x]=="MSU"):
+        cumulative[x+1,2]=scores.score[x]+cumulative[x,2]
+        cumulative[x+1,0]=scores.time[x]
+        cumulative[x+1,1]=cumulative[x,1]
+plt.plot(cumulative[0:51,0],cumulative[0:51,1],'r-',cumulative[0:51,0],cumulative[:,2],'g-')
+
+
+#for row in file
+   #  if (column 2 = uw)
+        # uwscore += column 4
+        # msuscore += 0
+        
+# plot uwscore and msuscore as a function of time
