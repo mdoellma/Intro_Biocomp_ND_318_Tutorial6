@@ -32,13 +32,16 @@ df0.columns=['time', 'UWscore', 'MSUscore']
 frames=[df0,df]
 df=pandas.concat(frames)
 #this is the list to append to with the loop below
-for row in scores[]:
+for row in range(0,len(scores)):
 #if score is x team, append to x value
 #else append to y value
     if scores.iloc[row,1] == "UW": 
         df.iloc[row+1,1] = df.iloc[row,1] + scores.iloc[row,2]
-    else scores.iloc[row,1] == "MSU"
+        df.iloc[row+1,2] = df.iloc[row,2]
+    elif scores.iloc[row,1] == "MSU":
         df.iloc[row+1,2] = df.iloc[row,2] + scores.iloc[row,2]
+        df.iloc[row+1,1] = df.iloc[row,1]
+plt.plot(df.time,df.UWscore,'r-',df.time,df.MSUscore,'g-')
 #<<<<<<< HEAD
 #=======
 #dataframe
