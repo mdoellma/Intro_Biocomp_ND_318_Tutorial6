@@ -1,0 +1,18 @@
+print ''' Welcome to guess my number!'''
+
+import random
+
+random_number = random.randrange(1, 100)
+correct = False
+
+while not correct:
+    guess = input("I'm thinking of a number between 1-100... > ")  # ask as long as answer is not correct
+    if guess == random_number:
+        print "Correct!"
+        correct = True
+    elif guess > random_number:
+        print "Lower"
+    elif guess < random_number:
+        print "Higher"
+    else:
+        print "Try something else"
