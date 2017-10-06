@@ -41,6 +41,36 @@ plt.plot(UW.iloc[0:,0],UW.iloc[0:,3],'r-',MSU.iloc[0:,0],MSU.iloc[0:,3],'g-')
 ################ Question 2 ################
 ############################################
 
+#### Create "Guess My Number" game 
+
+# Create array from 1-100 that the computer will take random draw from
+numbers = np.arange(100) 
+
+# Have the computer draw a random number, that we will try to guess
+TheGuess=numpy.random.choice(numbers) 
+
+# Make initial guess
+guess = 50
+
+# Use while statement to tell us whether our guess is higher, lower, or correct.
+while guess != TheGuess:
+    # Start the game
+    if guess < TheGuess:
+        # Tell the user your guess is too low
+        print("Higher")
+        # Ask the user for another number 
+        guess = input("Please guess again:")
+    else:
+        # Tell the user your guess is too high
+        print("Lower")
+        # Ask the user for another number 
+        guess = input("Please guess again:")
+print("Correct!")
+    
+
+
+
+
 
 
 
