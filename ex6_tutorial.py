@@ -33,27 +33,33 @@ UW_score = pandas.DataFrame(game, columns = ['time', 'team', 'score'])
 #try separate arrays for MSU and UW_score, with time and correct score
 #then plot it? 
 
-
+#read into array for UW team 
 for i in range (0,len(data),1):
-    D.time[i] == D.time[i]
-	if data.team[i]== 'UW':
-		UW_score.team[i] = 'UW'
-        	UW_score.score[i] = data.score[i]
-	if i < 0:
-		UW_score.score[i] = UW_score.score[i] + UW_score.score[i-1]
-    	elif data.team[i] == 'MSU':
-        	MSU_score.team[i] = 'MSU'
+    UW_score.time[i] = data.time[i]
+    if data.team[i]== 'UW':
+        UW_score.team[i] = 'UW'
+        if i <= 0:
+            UW_score.score[i] = data.score[i] 
+        if i > 0:
+            UW_score.score[i] = data.score[i] + UW_score.score [i-1]
+    if UW_score.team[i] != 'UW':
+        UW_score.score[i] = UW_score.score[[i-1]]
 
-#separate as above comment says(?), currently score sum is not correct        
+#read into array for MSU team
 for i in range (0,len(data),1):
-    if i == 0:
-        D.score[i] = data.score[i] 
-    elif i > 0: 
-        D.score[i] = data.score[i] + D.score[i-1]
+    MSU_score.time[i] = data.time[i]
+    if data.team[i]== 'MSU':
+        MSU_score.team[i] = 'MSU'
+        if i <= 3 and data.team[i] == 'UW':
+            MSU_score.score[i] = 0
+        if i <= 3:
+            MSU_score.score[i] = data.score[i] 
+        if i > 3:
+            MSU_score.score[i] = data.score[i] + MSU_score.score [i-1]
+    elif MSU_score.team[i] != 'UW':
+            MSU_score.score[i] = MSU_score.score[[i-1]]
 
-
-
-plot = plt.plot(data.time,UWscore,'r-',data.time,MSUscore,'g-')    
+plot = plt.plot(UW_score.time,UW_score.score,'r-',MSU_score.time,MSU_score.score,'g-')    
 
 
 #Q2 "Guess my number game"
