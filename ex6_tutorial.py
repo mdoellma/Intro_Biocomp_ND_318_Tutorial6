@@ -26,7 +26,6 @@ print UW_score
 print MSU_score
 
 D = pandas.DataFrame(game, columns= ['time', 'team', 'score']) 
-
 MSU_score = pandas.DataFrame(game, columns = ['time', 'team','score'])
 UW_score = pandas.DataFrame(game, columns = ['time', 'team', 'score'])
 
@@ -61,6 +60,28 @@ for i in range (0,len(data),1):
 
 plot = plt.plot(UW_score.time,UW_score.score,'r-',MSU_score.time,MSU_score.score,'g-')    
 
+=======
+	D.time[i] == D.time[i]
+	if data.team[i]== 'UW':
+		UW_score.team[i] = 'UW'
+        	UW_score.score[i] = data.score[i]
+	if i < 0:
+		UW_score.score[i] = UW_score.score[i] + UW_score.score[i-1]
+    	elif data.team[i] == 'MSU':
+        	MSU_score.team[i] = 'MSU'
+
+#separate as above comment says(?), currently score sum is not correct        
+for i in range (0,len(data),1):
+    if i == 0:
+        D.score[i] = data.score[i] 
+    elif i > 0: 
+        D.score[i] = data.score[i] + D.score[i-1]
+
+
+
+plot = plt.plot(data.time,UW_score,'r-',data.time,MSU_score,'g-')    
+print plot
+>>>>>>> 878c2bb54bbcb928a875e23a7cb94894d3d2a99a
 
 #Q2 "Guess my number game"
 
