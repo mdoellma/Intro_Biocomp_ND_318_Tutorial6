@@ -26,7 +26,6 @@ print UW_score
 print MSU_score
 
 D = pandas.DataFrame(game, columns= ['time', 'team', 'score']) 
-
 MSU_score = pandas.DataFrame(game, columns = ['time', 'team','score'])
 UW_score = pandas.DataFrame(game, columns = ['time', 'team', 'score'])
 
@@ -35,7 +34,7 @@ UW_score = pandas.DataFrame(game, columns = ['time', 'team', 'score'])
 
 
 for i in range (0,len(data),1):
-    D.time[i] == D.time[i]
+	D.time[i] == D.time[i]
 	if data.team[i]== 'UW':
 		UW_score.team[i] = 'UW'
         	UW_score.score[i] = data.score[i]
@@ -53,8 +52,8 @@ for i in range (0,len(data),1):
 
 
 
-plot = plt.plot(data.time,UWscore,'r-',data.time,MSUscore,'g-')    
-
+plot = plt.plot(data.time,UW_score,'r-',data.time,MSU_score,'g-')    
+print plot
 
 #Q2 "Guess my number game"
 
